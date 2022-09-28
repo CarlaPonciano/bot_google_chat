@@ -1,17 +1,13 @@
-function getGifRandom () {
-  randomId = Math.floor(Math.random() * gifsNumber);
-}
-
 function sendMessage () {
-  getGifRandom();
+  buildMessage();
   formData = {
+    "thread": {
+      "name": "<THREAD_ID>"
+    },
     "text": MESSAGE,
     "cards": [{
       "sections": [{
         "widgets": [{
-          "image": {
-            "imageUrl": GIFS[randomId]
-          },
           'buttons': [
             {
               'textButton': {
@@ -37,5 +33,4 @@ function sendMessage () {
 
   const response = UrlFetchApp.fetch(WEBHOOK, options);
   Logger.log(response);
-  Logger.log(randomId);
 };

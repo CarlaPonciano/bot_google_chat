@@ -1,7 +1,5 @@
 const WEBHOOK = "<YOUR_WEBHOOK>";
 const BUTTON_URL = "<BUTTON_URL>";
-const MESSAGE = "<YOUR_MESSAGE>";
-let randomId;
 const gifsNumber = 5;
 const GIFS = [
   "https://media.giphy.com/media/G7iLo8gSAwKj9xdh5t/giphy.gif",
@@ -10,3 +8,8 @@ const GIFS = [
   "https://media.giphy.com/media/3o6gaSIn4dGiY094Os/giphy-downsized-large.gif",
   "https://media.giphy.com/media/gLjD6hjRaLcFslzpvR/giphy.gif",
 ];
+let MESSAGE = ""
+function buildMessage () {
+  const randomId = Math.floor(Math.random() * gifsNumber);
+  MESSAGE = `<YOUR_MESSAGE> \n${GIFS[randomId]}`;
+}
